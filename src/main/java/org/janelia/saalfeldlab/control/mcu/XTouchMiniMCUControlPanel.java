@@ -157,7 +157,7 @@ public class XTouchMiniMCUControlPanel extends MCUControlPanel {
 
 		for (final Info info : MidiSystem.getMidiDeviceInfo()) {
 			final MidiDevice device = MidiSystem.getMidiDevice(info);
-			if (info.getDescription().contains(deviceDescription)) {
+			if (info.getDescription().toLowerCase().contains(deviceDescription.toLowerCase()) || info.getName().toLowerCase().contains(deviceDescription.toLowerCase())) {
 				if (device.getMaxTransmitters() != 0) {
 					transDev = device;
 					trans = device.getTransmitter();
